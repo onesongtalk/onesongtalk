@@ -7,7 +7,7 @@
 <meta name="description" content="《灣聲宮喂》是由灣聲樂團推出的 Podcast 頻道，四檔節目陪你聽見人生的各種模樣。藝文團隊合作、專訪、口播洽詢。">
 <meta property="og:title" content="灣聲宮喂 ONESONG TALK">
 <meta property="og:description" content="喂？這裡是灣聲宮喂，你哪裡找？由灣聲樂團推出的 Podcast 頻道。">
-<meta property="og:image" content="assets/hosts.jpg">
+<meta property="og:image" content="assets/cover.jpg">
 <link rel="icon" href="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,10 +47,20 @@ header{position:sticky;top:0;z-index:20;background:rgba(246,241,234,.92);backdro
 @media(max-width:760px){.nav ul{display:none}}
 
 /* hero */
-.hero{padding:48px 0 0;overflow:hidden}
-.hero-grid{display:grid;grid-template-columns:.8fr 1.4fr;gap:40px;align-items:center}
-.hero-logo{width:min(380px,80%)}
-.hero h1{font-size:clamp(22px,3vw,30px);margin:22px 0 8px;font-weight:900}
+.hero{padding:28px 0 0;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:40px;align-items:start;margin-top:36px}
+.hero h1{font-size:clamp(22px,3vw,30px);margin:0 0 8px;font-weight:900}
+.listen{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px}
+.listen-title{font-weight:900;font-size:18px}
+.listen-sub{font-size:13px;color:var(--muted);margin:2px 0 16px}
+.platforms{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.platforms a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:14px;background:var(--cream);border:1.5px solid var(--line);text-decoration:none;font-weight:700;font-size:15px;transition:border-color .15s,transform .15s}
+.platforms a:hover{border-color:var(--p);transform:translateY(-2px)}
+.platforms a.wide{grid-column:1/-1}
+.platforms span{white-space:nowrap}
+@media(max-width:420px){.platforms a{font-size:13.5px;padding:9px 10px;gap:8px}.platforms i{width:30px;height:30px}}
+.platforms i{flex:none;width:34px;height:34px;border-radius:10px;background:var(--p);color:#fff;display:grid;place-items:center}
+.platforms svg{width:20px;height:20px;fill:currentColor}
 .hero p{color:var(--muted);margin:0 0 26px}
 .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
 .hero-photo{border-radius:24px;overflow:hidden;box-shadow:0 20px 50px rgba(59,54,52,.15)}
@@ -58,8 +68,8 @@ header{position:sticky;top:0;z-index:20;background:rgba(246,241,234,.92);backdro
 .socials{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
 .socials a{font-size:13px;font-weight:700;text-decoration:none;padding:6px 14px;border-radius:999px;background:var(--sand)}
 .socials a:hover{background:var(--ink);color:#fff}
-.hero-logo,.brand img{mix-blend-mode:multiply}
-@media(max-width:860px){.hero-grid{grid-template-columns:1fr;gap:24px}.hero-photo{order:-1;aspect-ratio:auto}.hero-logo{width:220px}}
+.brand img{mix-blend-mode:multiply}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr;gap:28px;margin-top:24px}.hero-photo{border-radius:16px}}
 
 /* stats */
 .stats{background:var(--ink);color:#fff;padding:48px 0;margin-top:70px}
@@ -184,24 +194,34 @@ footer a:hover{color:var(--gold)}
 
 <main id="top">
 <section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <img class="hero-logo" src="assets/logo.png" alt="灣聲宮喂 ONESONG TALK">
-      <h1>喂？這裡是灣聲宮喂，你哪裡找？</h1>
-      <p>由灣聲樂團推出的 Podcast 頻道。就像朋友打來那聲「喂」，一個陪你上下班、發呆、深夜療癒的老朋友——四檔風格不同的節目，陪你聽見人生的各種模樣。</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#episodes">收聽最新一集</a>
-        <a class="btn btn-ghost" href="#collab">藝文團隊合作</a>
+  <div class="wrap">
+    <div class="hero-photo"><img src="assets/cover.jpg" alt="灣聲宮喂 ONESONG TALK 主持群"></div>
+    <div class="hero-grid">
+      <div>
+        <h1>喂？這裡是灣聲宮喂，你哪裡找？</h1>
+        <p>由灣聲樂團推出的 Podcast 頻道。就像朋友打來那聲「喂」，一個陪你上下班、發呆、深夜療癒的老朋友——四檔風格不同的節目，陪你聽見人生的各種模樣。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#episodes">收聽最新一集</a>
+          <a class="btn btn-ghost" href="#collab">藝文團隊合作</a>
+        </div>
+        <div class="socials">
+          <a href="https://www.instagram.com/onesongtalk/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.facebook.com/profile.php?id=61577912660849" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.threads.com/@onesongtalk" target="_blank" rel="noopener">Threads</a>
+        </div>
       </div>
-      <div class="socials">
-        <a href="https://www.youtube.com/@onesongtalk" target="_blank" rel="noopener">YouTube</a>
-        <a href="https://www.instagram.com/onesongtalk/" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://www.facebook.com/profile.php?id=61577912660849" target="_blank" rel="noopener">Facebook</a>
-        <a href="https://www.threads.com/@onesongtalk" target="_blank" rel="noopener">Threads</a>
-        <!-- TODO：補上 SoundOn / Spotify / Apple Podcasts 連結 -->
+      <div class="listen" id="listen">
+        <div class="listen-title">🎧 各大平台收聽</div>
+        <div class="listen-sub">完整版一次聽個夠！選你習慣的平台訂閱</div>
+        <div class="platforms">
+          <a href="https://pse.is/7udth4" target="_blank" rel="noopener" style="--p:#9933CC"><i><svg viewBox="0 0 24 24"><circle cx="12" cy="10" r="3"/><path d="M12 14c-1.3 0-2 .8-2 2l.6 5h2.8l.6-5c0-1.2-.7-2-2-2z"/><path d="M6.3 15.5A7 7 0 1 1 17.7 15.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></i><span>Apple Podcasts</span></a>
+          <a href="https://pse.is/7udtg2" target="_blank" rel="noopener" style="--p:#1DB954"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 9.5c4-1.3 8.5-1 12 1"/><path d="M7 13c3.3-1 7-.7 9.8.9"/><path d="M8 16.3c2.6-.7 5.2-.5 7.4.7"/></svg></i><span>Spotify</span></a>
+          <a href="https://pse.is/7udthd" target="_blank" rel="noopener" style="--p:#F25C2A"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 10v4M9 7v10M13 4v16M17 8v8M21 11v2"/></svg></i><span>SoundOn</span></a>
+          <a href="https://pse.is/7udtgp" target="_blank" rel="noopener" style="--p:#09B6E8"><i><svg viewBox="0 0 24 24"><path d="M9 18V6l10-2v12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><circle cx="7" cy="18" r="2.6"/><circle cx="17" cy="16" r="2.6"/></svg></i><span>KKBOX</span></a>
+          <a href="https://pse.is/7txuyk" target="_blank" rel="noopener" style="--p:#FF0033" class="wide"><i><svg viewBox="0 0 24 24"><path d="M9 7.5v9l7.5-4.5z"/></svg></i><span>YouTube 看影音版</span></a>
+        </div>
       </div>
     </div>
-    <div class="hero-photo"><img src="assets/hosts.jpg" alt="灣聲宮喂主持群"></div>
   </div>
 
   <div class="stats">
@@ -363,7 +383,11 @@ footer a:hover{color:var(--gold)}
 <footer>
   <div class="wrap">
     <div>© 灣聲宮喂 ONESONG TALK｜由灣聲樂團推出</div>
-    <div style="display:flex;gap:18px">
+    <div style="display:flex;gap:18px;flex-wrap:wrap">
+      <a href="https://pse.is/7udth4" target="_blank" rel="noopener">Apple Podcasts</a>
+      <a href="https://pse.is/7udtg2" target="_blank" rel="noopener">Spotify</a>
+      <a href="https://pse.is/7udthd" target="_blank" rel="noopener">SoundOn</a>
+      <a href="https://pse.is/7udtgp" target="_blank" rel="noopener">KKBOX</a>
       <a href="https://www.youtube.com/@onesongtalk" target="_blank" rel="noopener">YouTube</a>
       <a href="https://www.instagram.com/onesongtalk/" target="_blank" rel="noopener">Instagram</a>
       <a href="https://www.facebook.com/profile.php?id=61577912660849" target="_blank" rel="noopener">Facebook</a>
