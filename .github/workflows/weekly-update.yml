@@ -1,1 +1,44 @@
-pbcopy < "/Users/rick/灣聲宮喂官網/.github/workflows/weekly-update.yml"
+name: 每週自動更新節目集數並發布網站
+
+on:
+  schedule:
+    # 每週一、四 台灣時間 12:00（UTC 04:00）各跑一次
+    - cron: "0 4 * * 1,4"
+  push:
+    branches: [main]      # 你修改網站內容後也會自動重新發布
+  workflow_dispatch: {}   # 也可在 GitHub 上手動按「Run workflow」
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  update-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: 抓取 YouTube 最新集數
+        run: python scripts/update_episodes.py
+      - name: 有新集數就存檔
+        run: |
+          git config user.name "onesongtalk-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/
+          git diff --cached --quiet || (git commit -m "自動更新節目集數 $(date +%F)" && git push)
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deploy
+        uses: actions/deploy-pages@v4
